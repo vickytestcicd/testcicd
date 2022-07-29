@@ -7,10 +7,6 @@ on:
 jobs:
   build:
     uses: vickytestcicd/testcicd2/.github/workflows/main.yml@main
-  test:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - run: |
-          echo ${{ secrets.ACCOUNT }}
-          echo ${{ secrets.ACCOUNT2 }}
+    secrets:
+      ACCOUNT: ${{ secrets.ACCOUNT }}
+      ACCOUNT2: ${{ secrets.ACCOUNT2 }}
