@@ -1,0 +1,5 @@
+# deployment
+application:
+  name: helloworld
+  ports: [8080]
+replicaCount: 1
