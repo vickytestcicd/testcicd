@@ -10,3 +10,8 @@ jobs:
     secrets:
       ACCOUNT: ${{ secrets.ACCOUNT }}
       ACCOUNT2: ${{ secrets.ACCOUNT2 }}
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: | 
+          sed  '4 a\test' test.yaml 
