@@ -15,4 +15,4 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: | 
-          sed  '4 a\test' test.yaml 
+          sed  '3 a\test' test.yaml 
