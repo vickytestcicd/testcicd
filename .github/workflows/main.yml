@@ -13,5 +13,6 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/check-out@v3
       - run: | 
           sed  '4 a\test' test.yaml 
