@@ -1,8 +1,7 @@
 name: CI
 
-on:
-  push:
-    branches: [main]
+on: workflow_dispatch
+  
 
 jobs:
 #   build:
@@ -13,8 +12,5 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
       - run: | 
-          export test=ttt
-          sed -i '/name/{s/$/-'$test'/}' test.yaml 
-          cat test.yaml
+          echo 'test'
