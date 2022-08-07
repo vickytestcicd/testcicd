@@ -1,16 +1,16 @@
 name: CI
 
-on: workflow_dispatch
+on: 
+  push:
+    branches: [main]
   
 
 jobs:
-#   build:
-#     uses: vickytestcicd/testcicd2/.github/workflows/main.yml@main
-#     secrets:
-#       ACCOUNT: ${{ secrets.ACCOUNT }}
-#       ACCOUNT2: ${{ secrets.ACCOUNT2 }}
   test:
     runs-on: ubuntu-latest
     steps:
       - run: | 
           echo 'test'
+      - run: |
+          curl -H "Accept: application/vnd.github+json" -H "Authorization: token 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" https://api.github.com/repos/vickytestcicd/testcicd/branches/main/protection
+          
