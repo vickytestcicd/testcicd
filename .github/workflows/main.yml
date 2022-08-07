@@ -11,12 +11,7 @@ jobs:
 
     steps:
       - run: | 
-          echo ${{ github.api_url }}
-          echo ${{ github.repository }}
-          echo ${{ github.ref_protected }}
-          echo ${{ github.event.pull_request.states }}
-      - run: | 
-          echo "${{ tojson(github.event.pull_request) }}"
+          git branch --contains tags/y0.0.1
 
           
           
