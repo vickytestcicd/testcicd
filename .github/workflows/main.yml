@@ -10,10 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      TEST: ${{ secrets.PASS }}
+
     steps:
       - run: | 
-          curl -H "Accept: application/vnd.github+json" -H "Authorization: token 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" https://api.github.com/repos/vickytestcicd/testcicd/branches/main/protection
+          curl -H "Accept: application/vnd.github+json" -H "Authorization: token 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" https://api.github.com/repos/vickytestcicd/testcicd/branches/main/protection
+      - run: | 
           gh api -H "Accept: application/vnd.github+json"  /repos/vickytestcicd/testcicd/branches/main/protection
 
           
