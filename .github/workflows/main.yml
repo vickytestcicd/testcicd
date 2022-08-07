@@ -1,6 +1,12 @@
 name: CI
 
-on: workflow_dispatch
+on: 
+  workflow_dispatch:
+    inputs:
+      envvalue:
+        description: 'deploy env'
+        required: true
+        type: string
   
 
 jobs:
@@ -10,6 +16,7 @@ jobs:
     steps:
       - run: | 
           echo "test"
+          echo ${{ inputs.envvalue }}
 
           
           
