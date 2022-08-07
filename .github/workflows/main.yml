@@ -8,14 +8,11 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    env:
-      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
       - run: | 
-          curl -H "Accept: application/vnd.github+json" -H "Authorization: token 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" https://api.github.com/repos/vickytestcicd/testcicd/branches/main/protection
-      - run: | 
-          gh api -H "Accept: application/vnd.github+json"  /repos/vickytestcicd/testcicd/branches/main/protection
+          curl -H "Accept: application/vnd.github+json" -H "Authorization: token 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" https://api.github.com/repos/vickytestcicd/testcicd/branches/main/protection
+
 
           
           
