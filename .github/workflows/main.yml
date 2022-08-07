@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: | 
-          echo $GITHUB_TOKEN
+          echo ${{ secrets.GITHUB_TOKEN }}
       - run: |
           curl -H "Accept: application/vnd.github+json" -H "Authorization: token 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" https://api.github.com/repos/vickytestcicd/testcicd/branches/main/protection
           
