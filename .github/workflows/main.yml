@@ -1,8 +1,6 @@
 name: CI
 
-on: 
-  push:
-    branches: [main]
+on: workflow_dispatch
   
 
 jobs:
@@ -11,7 +9,7 @@ jobs:
 
     steps:
       - run: | 
-          git branch --contains tags/y0.0.1
+          echo "test"
 
           
           
