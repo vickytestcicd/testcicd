@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - run: | 
-          curl -H "Accept: application/vnd.github+json" -H "Authorization: token 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" https://api.github.com/repos/vickytestcicd/testcicd/branches/main/protection
+          curl -H "Accept: application/vnd.github+json" -H "Authorization: token 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" https://api.github.com/repos/vickytestcicd/testcicd/branches/main/protection
 
 
           
