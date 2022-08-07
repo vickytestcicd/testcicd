@@ -11,8 +11,12 @@ jobs:
 
     steps:
       - run: | 
-          curl -H "Accept: application/vnd.github+json" -H "Authorization: token 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" https://api.github.com/repos/vickytestcicd/testcicd/branches/main/protection
-
+          echo $GITHUB_REPOSITORY
+          echo ${{ github.repository }}
+          echo ${{ github.ref_protected }}
+          echo ${{ github.event.pull_request.states }}
+      - run: | 
+          echo "${{ tojson(github.event.pull_request) }}"
 
           
           
