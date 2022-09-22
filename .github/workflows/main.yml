@@ -18,7 +18,7 @@ jobs:
           for i in ${test[*]};do echo $i;done
       - id: step1
         run: | 
-          echo "::set-output name=test::$(cat test.txt)"
+          echo "::set-output name=test::($(cat test.txt))"
       - run: |
           for i in ${${{ steps.step1.outputs.test }}[*]};do echo $i;done
           echo ${${{ steps.step1.outputs.test }}[*]}
