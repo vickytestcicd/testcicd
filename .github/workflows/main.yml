@@ -1,19 +1,15 @@
 name: CI
 
 on: 
-  workflow_dispatch:
-    inputs:
-      envvalue:
-        description: 'deploy env'
-        required: true
-        type: string
+  push:
+    branches: [main]
   
 
 jobs:
   test:
     runs-on: ubuntu-latest
     env:
-      test: (a  ab 12  3a)
+      test: a  ab 12  3a
     outputs:
       output1: ${{ steps.step1.outputs.test }}
     steps:
@@ -22,9 +18,11 @@ jobs:
           for i in ${test[*]};do echo $i;done
       - id: step1
         run: | 
-          echo "::set-output name=test::$(cat test.txt))"
+          echo "::set-output name=test::$(cat test.txt)"
       - run: |
           for i in ${${{ steps.step1.outputs.test }}[*]};do echo $i;done
+          echo ${${{ steps.step1.outputs.test }}[*]}
+          echo ${{ steps.step1.outputs.test[*] }}
 
           
           
