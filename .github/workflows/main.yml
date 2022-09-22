@@ -17,10 +17,10 @@ jobs:
     outputs:
       output1: ${{ steps.step1.outputs.test }}
     steps:
-#       - uses: actions/checkout@v3
-#       - run: echo $(cat test.txt)
-#       - run: |
-#           i=0; for line in $(cat test.txt);do blacklists[$i]=$line; ((i++));done
+      - uses: actions/checkout@v3
+      - run: echo $(cat test.txt)
+      - run: |
+          i=0; for line in $(cat test.txt);do blacklists[$i]=$line; ((i++));done
 #           echo ${blacklists[*]}
       - run: |
           echo $test
