@@ -23,6 +23,7 @@ jobs:
 
       - run: |
           a=${{ steps.step1.outputs.test }}
+          echo ${a[*]}
           for i in ${a[*]};do echo $i;done
 #       - run: for i in $(cat test.txt);do echo $i;done
           
