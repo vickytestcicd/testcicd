@@ -22,7 +22,8 @@ jobs:
           echo "::set-output name=test::${vicky[*]}"
 
       - run: |
-          echo ${{ steps.step1.outputs.test[*] }}
+          a=${{ steps.step1.outputs.test }}
+          for i in ${a[*]};do echo $i;done
 #       - run: for i in $(cat test.txt);do echo $i;done
           
           
