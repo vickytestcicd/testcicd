@@ -20,9 +20,7 @@ jobs:
       - id: step1
         run: | 
           vicky=($(cat test.txt))
-          vicky1=( $cat test.txt) )
           echo $vicky
-          echo $vicky1
           echo "::set-output name=test2::$vicky"
 #       - run: |
 #           echo ${${{ steps.step1.outputs.test }}[*]}
