@@ -20,7 +20,7 @@ jobs:
       - id: step1
         run: | 
           vicky=($(cat test.txt))
-          echo $vicky
+           for i in ${vicky[*]} ;do echo $i;done
           echo "::set-output name=test2::$vicky"
 #       - run: |
 #           echo ${${{ steps.step1.outputs.test }}[*]}
