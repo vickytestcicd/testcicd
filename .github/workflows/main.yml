@@ -21,8 +21,7 @@ jobs:
         run: | 
           vicky=($(cat test.txt))
           echo "::set-output name=test2::${vicky[*]}"
-      - run: |
-          echo ${${{ steps.step1.outputs.test }}[*]}
+
       - run: |
           echo ${{ steps.step1.outputs.test[*] }}
 #           echo ${${{ steps.step1.outputs.test2 }}[*]}
