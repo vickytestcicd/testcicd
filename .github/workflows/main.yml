@@ -12,11 +12,22 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-
+    env:
+      test: (a  ab 12  3a)
+    outputs:
+      output1: ${{ steps.step1.outputs.test }}
     steps:
-      - run: | 
-          echo "test"
-          echo ${{ inputs.envvalue }}
+      - uses: actions/checkout@v3
+      - run: |
+          i=0; for line in $(cat test.txt);do blacklists[$i]=$line; ((i++));done
+          echo ${blacklists[*]}
+      - run: |
+          echo $test
+          echo ${test[1]}
+          echo ${test[*]}
+      - id: step1
+        run: | 
+          echo "::set-output name=test::$(echo ${blacklists[*]})"
 
           
           
