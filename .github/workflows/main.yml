@@ -18,17 +18,13 @@ jobs:
       output1: ${{ steps.step1.outputs.test }}
     steps:
       - uses: actions/checkout@v3
-      - run: echo $(cat test.txt)
       - run: |
-          i=0; for line in $(cat test.txt);do blacklists[$i]=$line; ((i++));done
-#           echo ${blacklists[*]}
-      - run: |
-          echo $test
-          echo ${test[1]}
-          echo ${test[*]}
+          for i in ${test[*]};do echo $i;done
       - id: step1
         run: | 
-          echo "::set-output name=test::$(echo ${blacklists[*]})"
+          echo "::set-output name=test::$(cat test.txt))"
+      - run: |
+          for i in ${${{ steps.step1.outputs.test }}[*]};do echo $i;done
 
           
           
