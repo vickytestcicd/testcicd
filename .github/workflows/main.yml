@@ -15,18 +15,20 @@ jobs:
       output2: ${{ steps.step1.outputs.test2 }}
     steps:
       - uses: actions/checkout@v3
-      - run: |
-          for i in ${test[*]};do echo $i;done
+#       - run: |
+#           for i in ${test[*]};do echo $i;done
       - id: step1
         run: | 
           vicky=($(cat test.txt))
-          echo "::set-output name=test::($(cat test.txt))"
+          vicky1=( $cat test.txt) )
+          echo $vicky
+          echo $vicky1
           echo "::set-output name=test2::$vicky"
-      - run: |
-          echo ${${{ steps.step1.outputs.test }}[*]}
-          echo ${{ steps.step1.outputs.test[*] }}
-          echo ${${{ steps.step1.outputs.test2 }}[*]}
-          echo ${{ steps.step1.outputs.test2[*] }}
-      - run: for i in $(cat test.txt);do echo $i;done
+#       - run: |
+#           echo ${${{ steps.step1.outputs.test }}[*]}
+#           echo ${{ steps.step1.outputs.test[*] }}
+#           echo ${${{ steps.step1.outputs.test2 }}[*]}
+#           echo ${{ steps.step1.outputs.test2[*] }}
+#       - run: for i in $(cat test.txt);do echo $i;done
           
           
