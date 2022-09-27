@@ -8,17 +8,15 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    outputs:
-      output1: ${{ steps.step1.outputs.test }}
     steps:
       - uses: actions/checkout@v3
       - run: |
           msg=$(curl -H "Accept: application/vnd.github+json" -k https://api.github.com/repos/vickytestcicd/testcicd)
-          echo $msg
+           echo "::set-output name=test::$msg}"
       - run: |    
-          echo ${{ fromJSON(msg::$(curl -H "Accept: application/vnd.github+json" -k https://api.github.com/repos/vickytestcicd/testcicd)) }}
+          echo ${{ fromJSON(steps.step1.outputs.test)) }}
       - run: |
-          echo fromJSON($msg).id
+          echo ${{ fromJSON(steps.step1.outputs.test)).default_branch }}
 #       - id: step1
 #         run: | 
 #           vicky=($(cat test.txt))
