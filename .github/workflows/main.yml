@@ -13,7 +13,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: |
-         echo fromJSON(curl -H "Accept: application/vnd.github+json" -H "Authorization: token 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" https://api.github.com/repos/vickytestcicd/testcicd).id
+          msg=$(curl -H "Accept: application/vnd.github+json" -k https://api.github.com/repos/vickytestcicd/testcicd)
+          echo fromJSON($msg)
+          echo fromJSON($msg).id
 #       - id: step1
 #         run: | 
 #           vicky=($(cat test.txt))
