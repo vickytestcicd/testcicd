@@ -11,14 +11,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: |
-          msg=$(curl -H "Accept: application/vnd.github+json" -k https://api.github.com/repos/vickytestcicd/testcicd)
-           echo "::set-output name=test::$msg}"
+           echo "::set-output name=test::$(curl -H "Accept: application/vnd.github+json" -k https://api.github.com/repos/vickytestcicd/testcicd)}"
       - run: |    
           echo ${{ fromJSON(steps.step1.outputs.test) }}
       - run: |
           echo ${{ fromJSON(steps.step1.outputs.test).default_branch }}
-      - run: |
-          echo fromJSON($msg)
+
 #       - id: step1
 #         run: | 
 #           vicky=($(cat test.txt))
