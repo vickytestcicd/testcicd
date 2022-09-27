@@ -13,9 +13,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: |
-          export msg=$(curl -H "Accept: application/vnd.github+json" -k https://api.github.com/repos/vickytestcicd/testcicd)
+          msg=$(curl -H "Accept: application/vnd.github+json" -k https://api.github.com/repos/vickytestcicd/testcicd)
       - run: |    
           echo fromJSON($msg)
+      - run: |
           echo fromJSON($msg).id
 #       - id: step1
 #         run: | 
