@@ -12,9 +12,8 @@ jobs:
       - uses: actions/checkout@v3
       - id: step1
         run: |
-           echo "::set-output name=test::$(curl -H "Accept: application/vnd.github+json" -k https://api.github.com/repos/vickytestcicd/testcicd)"
-      - run: |
-          echo ${{ fromJSON('"id": 1296269,').id }}
+           msg=$(curl -H "Accept: application/vnd.github+json" -k https://api.github.com/repos/vickytestcicd/testcicd)
+           echo "::set-output name=test::$msg"
       - run: |
            echo ${{ steps.step1.outputs.test }}
       - run: |
