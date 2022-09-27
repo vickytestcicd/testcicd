@@ -21,8 +21,7 @@ jobs:
           REPORT="${REPORT//$'\r'/'%0D'}"
           echo "::set-output name=packageJson::$REPORT"
       - run: |
-          echo ${{steps.set_var.outputs.packageJson}}
-     #     echo "${{fromJson(steps.set_var.outputs.packageJson).id}}"
+         echo "${{fromJson(steps.set_var.outputs.packageJson).id}}"
 
 #           
 
