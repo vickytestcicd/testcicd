@@ -13,6 +13,7 @@ jobs:
       - id: step1
         run: |
            msg=$(curl -H "Accept: application/vnd.github+json" -k https://api.github.com/repos/vickytestcicd/testcicd)
+           echo $msg
            echo "::set-output name=test::$msg"
       - run: |
            echo ${{ steps.step1.outputs.test }}
