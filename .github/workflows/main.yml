@@ -14,7 +14,7 @@ jobs:
         run: |
            msg=$(curl -H "Accept: application/vnd.github+json" -k https://api.github.com/repos/vickytestcicd/testcicd)
            echo $msg
-           echo fromJSON($msg).default_branch
+           echo ${{ fromJSON(msg).default_branch }}
 #       - run: |
 #            echo ${{ steps.step1.outputs.test }}
 #       - run: |
