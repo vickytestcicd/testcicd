@@ -11,7 +11,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: |
+          echo ${{ fromJSON('{"id": 1296269,"node_id": "MDEwOlJlcG9zaXRvcnkxMjk2MjY5","name": "Hello-World"}').id }}
+      - run: |
            echo "::set-output name=test::$(curl -H "Accept: application/vnd.github+json" -k https://api.github.com/repos/vickytestcicd/testcicd)}"
+           echo ${{ steps.step1.outputs.test }}
+      - run: |
+          echo ${{ fromJSON('"id": 1296269,').id }}
       - run: |    
           echo ${{ fromJSON(steps.step1.outputs.test) }}
       - run: |
