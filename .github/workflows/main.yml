@@ -8,22 +8,20 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    env:
-      test: a  ab 12  3a
     outputs:
       output1: ${{ steps.step1.outputs.test }}
     steps:
       - uses: actions/checkout@v3
-#       - run: |
-#           for i in ${test[*]};do echo $i;done
-      - id: step1
-        run: | 
-          vicky=($(cat test.txt))
-          echo "::set-output name=test::${vicky[*]}"
-
       - run: |
-          a=(${{ steps.step1.outputs.test }})
-          for i in ${a[*]};do echo $i;done
-#       - run: for i in $(cat test.txt);do echo $i;done
+         echo fromJSON(curl -H "Accept: application/vnd.github+json" -H "Authorization: token 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" https://api.github.com/repos/vickytestcicd/testcicd).id
+#       - id: step1
+#         run: | 
+#           vicky=($(cat test.txt))
+#           echo "::set-output name=test::${vicky[*]}"
+
+#       - run: |
+#           a=(${{ steps.step1.outputs.test }})
+#           for i in ${a[*]};do echo $i;done
+# #       - run: for i in $(cat test.txt);do echo $i;done
           
           
