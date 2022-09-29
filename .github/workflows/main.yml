@@ -10,8 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - id: step1
-        run: |
           
       - id: set_var
         run: |
@@ -23,7 +21,6 @@ jobs:
       - id: test1
         run: |
           echo "::set-output name=test::${{fromJSON(steps.set_var.outputs.packageJson).default_branch}}"
-         
           echo ${{ steps.test1.outputs.test }}
 
 #           
