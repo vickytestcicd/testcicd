@@ -20,8 +20,11 @@ jobs:
           REPORT="${REPORT//$'\n'/'%0A'}"
           REPORT="${REPORT//$'\r'/'%0D'}"
           echo "::set-output name=packageJson::$REPORT"
-      - run: |
-         echo "${{fromJSON(steps.set_var.outputs.packageJson).default_branch}}"
+      - id: test1
+        run: |
+          echo "::set-output name=test::${{fromJSON(steps.set_var.outputs.packageJson).default_branch}}"
+         
+          echo ${{ steps.test1.outputs.test }}
 
 #           
 
