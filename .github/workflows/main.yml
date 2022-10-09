@@ -11,14 +11,21 @@ jobs:
     steps:
       - uses: actions/checkout@v3
           
+#       - id: set_var
+#         run: |
+#           REPORT=$(curl -H "Accept: application/vnd.github+json" -k https://api.github.com/repos/vickytestcicd/testcicd)
+#           echo $REPORT
+#           REPORT="${REPORT//'%'/'%25'}"
+#           REPORT="${REPORT//$'\n'/'%0A'}"
+#           REPORT="${REPORT//$'\r'/'%0D'}"
+#           echo "::set-output name=packageJson::$REPORT"
       - id: set_var
         run: |
-          REPORT=$(curl -H "Accept: application/vnd.github+json" -k https://api.github.com/repos/vickytestcicd/testcicd)
-          echo $REPORT
-          REPORT="${REPORT//'%'/'%25'}"
-          REPORT="${REPORT//$'\n'/'%0A'}"
-          REPORT="${REPORT//$'\r'/'%0D'}"
-          echo "::set-output name=packageJson::$REPORT"
+          DEFAULT=$(curl -H "Accept: application/vnd.github+json" -k https://api.github.com/repos/vickytestcicd/testcicd)
+          DEFAULT="${DEFAULT//'%'/'%25'}" 
+          DEFAULT="${DEFAULT//$'\n'/'%0A'}" 
+          DEFAULT="${DEFAULT//$'\r'/'%0D'}"
+          echo "::set-output name=repoInfo::$DEFAULT"
       - run: |
           echo ${{ steps.set_var.outputs.packageJson }}
       - id: step1
