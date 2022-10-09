@@ -22,10 +22,11 @@ jobs:
       - id: set_var
         run: |
           DEFAULT=$(curl -H "Accept: application/vnd.github+json" -k https://api.github.com/repos/vickytestcicd/testcicd)
+          echo $DEFAULT
           DEFAULT="${DEFAULT//'%'/'%25'}" 
           DEFAULT="${DEFAULT//$'\n'/'%0A'}" 
           DEFAULT="${DEFAULT//$'\r'/'%0D'}"
-          echo "::set-output name=repoInfo::$DEFAULT"
+          echo "::set-output name=packageJson::$DEFAULT"
       - run: |
           echo ${{ steps.set_var.outputs.packageJson }}
       - id: step1
