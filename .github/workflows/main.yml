@@ -19,10 +19,10 @@ jobs:
           REPORT="${REPORT//$'\n'/'%0A'}"
           REPORT="${REPORT//$'\r'/'%0D'}"
           echo "::set-output name=packageJson::$REPORT"
-          
+      - run: |
+          echo ${{ steps.set_var.outputs.packageJson }}
       - id: step1
         run: |
-          echo ${{ steps.set_var.outputs.packageJson }} 
           echo "::set-output name=test::${{ fromJSON(steps.set_var.outputs.packageJson).default_branch }}"
       - run: |
           curl -k -H "Accept: application/vnd.github+json" https://api.github.com/repos/vickytestcicd/testcicd/branches/${{ steps.step1.outputs.test }}/protection
