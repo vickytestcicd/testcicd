@@ -22,7 +22,8 @@ jobs:
       - id: step1
         run: |
           echo "::set-output name=test::${{ fromJSON(steps.set_var.outputs.packageJson).default_branch }}"
-          echo ${{ steps.step1.outputs.test }}
+      - run: |
+          curl -k -H "Accept: application/vnd.github+json" https://api.github.com/repos/vickytestcicd/testcicd/branches/${{ steps.step1.outputs.test }}/protection
 
 #           
 
