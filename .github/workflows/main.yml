@@ -3,7 +3,7 @@ name: CI
 on: 
   workflow_call:
     inputs:
-      test:
+      dbEnv:
         required: true
         type: string
   
@@ -12,7 +12,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{ inputs.test }}  
+      - run: echo ${{ inputs.dbEnv }}  
    
  
           
