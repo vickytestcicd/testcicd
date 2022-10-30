@@ -10,41 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-          
-#       - id: set_var
-#         run: |
-#           REPORT=$(curl -H "Accept: application/vnd.github+json" -k https://api.github.com/repos/vickytestcicd/testcicd)
-#           echo $REPORT
-#           REPORT="${REPORT//'%'/'%25'}"
-#           REPORT="${REPORT//$'\n'/'%0A'}"
-#           REPORT="${REPORT//$'\r'/'%0D'}"
-#           echo "::set-output name=packageJson::$REPORT"
-      - id: set_var
-        run: |
-          DEFAULT=$(curl -H "Accept: application/vnd.github+json" -k https://api.github.com/repos/vickytestcicd/testcicd)
-          echo $DEFAULT
-          DEFAULT="${DEFAULT//'%'/'%25'}" 
-          DEFAULT="${DEFAULT//$'\n'/'%0A'}" 
-          DEFAULT="${DEFAULT//$'\r'/'%0D'}"
-          echo "::set-output name=packageJson::$DEFAULT"
+      - run: echo $(ls)
       - run: |
-          echo ${{ steps.set_var.outputs.packageJson }}
-      - id: step1
-        run: |
-          echo "::set-output name=test::${{ fromJSON(steps.set_var.outputs.packageJson).default_branch }}"
-      - run: |
-          curl -k -H "Accept: application/vnd.github+json" https://api.github.com/repos/vickytestcicd/testcicd/branches/${{ steps.step1.outputs.test }}/protection
-
-#           
-
-#       - id: step1
-#         run: | 
-#           vicky=($(cat test.txt))
-#           echo "::set-output name=test::${vicky[*]}"
-
-#       - run: |
-#           a=(${{ steps.step1.outputs.test }})
-#           for i in ${a[*]};do echo $i;done
-# #       - run: for i in $(cat test.txt);do echo $i;done
-          
+         cd test
+         echo $(ls)
+      - run: echo $(ls)   
+   
+ 
           
