@@ -12,7 +12,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - run: echo $(test)  
+      - run: echo ${{ inputs.test }}  
    
  
           
