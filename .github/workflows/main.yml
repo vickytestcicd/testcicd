@@ -1,20 +1,18 @@
 name: CI
 
 on: 
-  push:
-    branches: [master]
+  workflow_call:
+    inputs:
+      test:
+        required: true
+        type: string
   
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - run: echo $(ls)
-      - run: |
-         cd test
-         echo $(ls)
-      - run: echo $(ls)   
+      - run: echo $(test)  
    
  
           
