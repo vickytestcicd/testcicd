@@ -17,19 +17,22 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    outputs:
+      test: ${{ steps.mongo.outputs.aa }}
     steps:
 #       - run: echo ${{ inputs.environment }}  
       - name: check
         id: mongo
-        run: exit 1
-      - name: test
-        if: ${{ failure() }}
-        run: echo 'test'
-  check:
-    runs-on: ubuntu-latest
-    needs: [test]
-    steps:
-      - run: echo 'test'
+        run: echo "::set-output name=aa::vlaue"
+      - run: echo ${{ steps.mongo.outputs.aa }}
+#       - name: test
+#         if: ${{ failure() }}
+#         run: echo 'test'
+#   check:
+#     runs-on: ubuntu-latest
+#     needs: [test]
+#     steps:
+#       - run: echo 'test'
    
  
           
