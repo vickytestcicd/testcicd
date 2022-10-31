@@ -23,6 +23,10 @@ jobs:
       - name: test
         if: ${{ failure() }}
         run: echo 'test'
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'test'
    
  
           
