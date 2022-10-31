@@ -17,6 +17,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo ${{ inputs.environment }}  
+      - name: check
+        id: mongo
+        run: exit 1
+      - name: test
+        if: ${{ steps.mongo.outcome == 'failure' }}
+        run: echo 'test'
    
  
           
