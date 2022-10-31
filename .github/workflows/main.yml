@@ -1,14 +1,16 @@
 name: CI
 
 on: 
-  workflow_call:
-    inputs:
-      environment:
-        required: true
-        type: string 
-    secrets: 
-      SONAR: 
-        required: true        
+  push: 
+    branches: [master]
+#   workflow_call:
+#     inputs:
+#       environment:
+#         required: true
+#         type: string 
+#     secrets: 
+#       SONAR: 
+#         required: true        
 
   
 
@@ -16,7 +18,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{ inputs.environment }}  
+#       - run: echo ${{ inputs.environment }}  
       - name: check
         id: mongo
         run: exit 1
