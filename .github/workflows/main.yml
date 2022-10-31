@@ -21,7 +21,7 @@ jobs:
         id: mongo
         run: exit 1
       - name: test
-        if: ${{ steps.mongo.outcome == 'failure' }}
+        if: ${{ steps.mongo.conclusion == 'failure' }}
         run: echo 'test'
    
  
