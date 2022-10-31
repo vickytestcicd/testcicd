@@ -19,7 +19,7 @@ jobs:
       - run: echo ${{ inputs.environment }}  
       - name: check
         id: mongo
-        run: exit 1
+        run: exit 0
       - name: test
         if: ${{ steps.mongo.conclusion == 'failure' }}
         run: echo 'test'
