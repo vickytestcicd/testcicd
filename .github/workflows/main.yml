@@ -2,15 +2,15 @@ name: CI
 
 on: 
   push: 
-    branches: [master]
-#   workflow_call:
-#     inputs:
-#       environment:
-#         required: true
-#         type: string 
-#     secrets: 
-#       SONAR: 
-#         required: true        
+#     branches: [master]
+  workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string 
+    secrets: 
+      SONAR: 
+        required: true        
 
   
 
@@ -20,7 +20,7 @@ jobs:
     outputs:
       test: ${{ steps.mongo.outputs.aa }}
     steps:
-#       - run: echo ${{ inputs.environment }}  
+      - run: echo ${{ inputs.environment }}  
       - name: check
         id: mongo
         run: echo "::set-output name=aa::vlaue"
