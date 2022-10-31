@@ -24,10 +24,11 @@ jobs:
       - name: check
         id: mongo
         run: echo "::set-output name=aa::vlaue"
-      - run: echo ${{ steps.mongo.outputs.aa }}
-#       - name: test
-#         if: ${{ failure() }}
-#         run: echo 'test'
+      - run: exit 1
+      - name: test
+        if: ${{ failure() }}
+        run: echo ${{ steps.mongo.outputs.aa }}
+
 #   check:
 #     runs-on: ubuntu-latest
 #     needs: [test]
