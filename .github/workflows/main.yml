@@ -23,10 +23,18 @@ jobs:
       test: dev
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/checkout@v3
         with:
           repository: vickytestcicd/testcicd2
-      - run: ls
+      - run: |
+          ls
+          cd /home/runner/work
+          ls
+      - uses: actions/checkout@v3
+
+      - run: |
+          ls
+          cd /home/runner/work
+          ls
 #       - name: check
 #         id: mongo
 #         run: echo "::set-output name=aa::vlaue"
