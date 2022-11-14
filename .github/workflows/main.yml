@@ -27,13 +27,17 @@ jobs:
           repository: vickytestcicd/testcicd2
       - run: |
           ls
-          cd /home/runner/work
+          cd /home/runner/work/testcicd
           ls
+      - run: |
+          ls
+          cd /home
+          ls   
       - uses: actions/checkout@v3
 
       - run: |
           ls
-          cd /home/runner/work
+          cd /home/runner/work/testcicd
           ls
 #       - name: check
 #         id: mongo
