@@ -24,7 +24,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          repository: vickytestcicd/testcicd2
+          repository: vickytestcicd/mongo
       - run: |
           cd /home/runner/work/testcicd
           ls 
