@@ -26,17 +26,13 @@ jobs:
         with:
           repository: vickytestcicd/testcicd2
       - run: |
-          ls
           cd /home/runner/work/testcicd
           ls
       - run: |
-          ls
-          cd /home
-          ls   
+          cd /home/runner/work/testcicd/testcicd
+          ls  
       - uses: actions/checkout@v3
-
       - run: |
-          ls
           cd /home/runner/work/testcicd
           ls
 #       - name: check
