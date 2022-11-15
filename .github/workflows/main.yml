@@ -29,7 +29,7 @@ jobs:
           path: ${{ env.scripts }}
       - uses: actions/checkout@v3
       - run: |
-          cd /home/runner/work/testcicd
+          cd /home/runner/work/testcicd/testcicd
           ls
 #       - name: check
 #         id: mongo
