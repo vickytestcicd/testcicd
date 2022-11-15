@@ -19,7 +19,7 @@ jobs:
       test: dev
     steps:
       - name: hhh
-        if: ${{ env.script }}
+        if: ${{ fromJson('["push", true]').push }}
         run: |
           echo  ${{ env.scripts }}
         
