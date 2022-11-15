@@ -25,7 +25,7 @@ jobs:
 #       - uses: actions/checkout@v3
 #         with:
 #           path: "source"
-      - if: ${{ env.scripts==false }} && ${{ env.scripts==false }}
+      - if: ${{ env.scripts==false }} && ${{ env.scripts==true }}
         run: |
           pwd
 
