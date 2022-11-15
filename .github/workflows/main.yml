@@ -18,7 +18,7 @@ jobs:
     env:
       test: dev
     steps:
-      - if:  ${{ env.scripts }}
+      - if: ${{ env.script==true }}
         run: |
           echo  ${{ env.scripts }}
         
