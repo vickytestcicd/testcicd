@@ -13,7 +13,6 @@ env:
 jobs:
   test:
     runs-on: ubuntu-latest
-    if: ${{ env.scripts }}
     outputs:
       test: ${{ steps.mongo.outputs.aa }}
     env:
@@ -27,8 +26,9 @@ jobs:
         with:
           path: source
       - run: |
-          pwd
-          ls
+
+          echo  ${{ env.scripts }}
+        
 #       - name: check
 #         id: mongo
 #         run: echo "::set-output name=aa::vlaue"
