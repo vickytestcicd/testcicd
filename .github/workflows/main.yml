@@ -8,7 +8,7 @@ on:
 #       SONAR: 
 #         required: true        
 env:
-  scripts: true
+  scripts: false
 
 jobs:
   test:
