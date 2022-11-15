@@ -27,6 +27,7 @@ jobs:
           path: "source"
       - run: |
           pwd
+          ls
           sh mongo-scripts/scripts/mongo/migrate-check.sh
           pwd
         
