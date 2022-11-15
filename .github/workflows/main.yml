@@ -3,22 +3,17 @@ name: CI
 on: 
   push: 
     branches: [master]
-#   workflow_call:
-#     inputs:
-#       environment:
-#         required: true
-#         type: string 
+
 #     secrets: 
 #       SONAR: 
 #         required: true        
 env:
-  scripts: mongo-scripts
-  test: false
+  scripts: true
 
 jobs:
   test:
     runs-on: ubuntu-latest
-    if: ${{ env.test==false }}
+    if: ${{ env.scripts }}
     outputs:
       test: ${{ steps.mongo.outputs.aa }}
     env:
