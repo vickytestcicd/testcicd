@@ -26,12 +26,13 @@ jobs:
       - uses: actions/checkout@v3
         with:
           repository: vickytestcicd/mongo
-          path: ${{ env.scripts }}
+          path: mongo-scripts
       - uses: actions/checkout@v3
         with:
-          path: "source"
+          path: source
       - run: |
-          sh mongo-scripts/scripts/mongo/migrate-check.sh
+          pwd
+          ls
 #       - name: check
 #         id: mongo
 #         run: echo "::set-output name=aa::vlaue"
