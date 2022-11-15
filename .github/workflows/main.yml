@@ -28,6 +28,8 @@ jobs:
           repository: vickytestcicd/mongo
           path: ${{ env.scripts }}
       - uses: actions/checkout@v3
+        with:
+          path: "source"
       - run: |
           cd /home/runner/work/testcicd/testcicd
           ls
