@@ -18,7 +18,7 @@ env:
 jobs:
   test:
     runs-on: ubuntu-latest
-    if: ${{ env.test }}
+    if: ${{ env.test==false }}
     outputs:
       test: ${{ steps.mongo.outputs.aa }}
     env:
