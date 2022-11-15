@@ -13,11 +13,12 @@ on:
 #         required: true        
 env:
   scripts: mongo-scripts
-  
+  test: true
 
 jobs:
   test:
     runs-on: ubuntu-latest
+    if: ${{ env.test }}
     outputs:
       test: ${{ steps.mongo.outputs.aa }}
     env:
