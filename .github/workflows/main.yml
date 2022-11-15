@@ -23,11 +23,11 @@ jobs:
     env:
       test: dev
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
         with:
           repository: vickytestcicd/mongo
           path: mongo-scripts
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
         with:
           path: source
       - run: |
