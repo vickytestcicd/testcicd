@@ -11,17 +11,18 @@ env:
   scripts: false
 
 jobs:
-  test:
+  job1:
     runs-on: ubuntu-latest
     outputs:
-      test: ${{ steps.mongo.outputs.aa }}
-    env:
-      test: dev
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
-      - name: hhh
-        if: ${{ fromJson('["push", true]').push }}
-        run: |
-          echo  ${{ env.scripts }}
+      - id: set-matrix
+        run: echo "matrix={\"include\":[{\"project\":true,\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}" >> $GITHUB_OUTPUT
+  job2:
+    needs: job1
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo  ${{ fromJSON(needs.job1.outputs.matrix).include.project }}
         
 #       - name: check
 #         id: mongo
