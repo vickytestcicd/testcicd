@@ -31,8 +31,7 @@ jobs:
         with:
           path: "source"
       - run: |
-          pwd
-          ls
+          sh scripts/mongo/migrate-check.sh
 #       - name: check
 #         id: mongo
 #         run: echo "::set-output name=aa::vlaue"
