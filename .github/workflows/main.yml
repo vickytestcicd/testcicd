@@ -31,7 +31,7 @@ jobs:
         with:
           path: "source"
       - run: |
-          ls
+          cd mongo-scripts
 #          sh scripts/mongo/migrate-check.sh
 #       - name: check
 #         id: mongo
