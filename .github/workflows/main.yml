@@ -18,7 +18,8 @@ jobs:
     env:
       test: dev
     steps:
-      - run: |
+      - if:  ${{ env.scripts }}
+        run: |
           echo  ${{ env.scripts }}
         
 #       - name: check
