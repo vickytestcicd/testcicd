@@ -31,7 +31,6 @@ jobs:
         with:
           path: "source"
       - run: |
-          cd scripts
           ls
 #          sh scripts/mongo/migrate-check.sh
 #       - name: check
