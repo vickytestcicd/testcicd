@@ -20,5 +20,5 @@ jobs:
       - name: test
         id: test
         run: |
-           echo "::set-output name=aa::valuesss"
-           echo "::set-output name=bb::valuesss"
+           echo "::set-output name=aa::true"
+           echo "::set-output name=bb::false"
