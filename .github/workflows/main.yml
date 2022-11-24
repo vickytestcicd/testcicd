@@ -11,7 +11,8 @@ jobs:
   test:
     runs-on: ubuntu-latest
     outputs:
-      deployResult: ${{ steps.test.outputs.result }}
+      aa: ${{ steps.test.outputs.aa }}
+      bb: ${{ steps.test.outputs.bb }}
     steps:
       - name: test
         id: test
