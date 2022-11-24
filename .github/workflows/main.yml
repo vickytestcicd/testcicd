@@ -1,44 +1,19 @@
 name: CI
 
 on: 
-  push: 
-    branches: [master]
-
-#     secrets: 
-#       SONAR: 
-#         required: true        
-env:
-  scripts: false
+  workflow_call:
+    outputs:
+      deployResult:
+        description: "the result of deployment"
+        value: ${{ jobs.test.outputs.result }}
 
 jobs:
   test:
     runs-on: ubuntu-latest
+    outputs:
+      deployResult: ${{ steps.test.outputs.aa }}
     steps:
-      - uses: actions/checkout@v3
-        with:
-          repository: vickytestcicd/mongo
-          path: "script"
-      - uses: actions/checkout@v3
-        with:
-          path: "source"
-      - run: |
-          cd script
-          ls
-
-        
-#       - name: check
-#         id: mongo
-#         run: echo "::set-output name=aa::vlaue"
-#       - run: exit 1
-#       - name: test
-#         if: ${{ failure() }}
-#         run: echo ${{ steps.mongo.outputs.aa }}
-
-#   check:
-#     runs-on: ubuntu-latest
-#     needs: [test]
-#     steps:
-#       - run: echo 'test'
-   
- 
-          
+      - name: test
+        id: test
+        run: |
+           echo "::set-output name=aa::valuesss"
