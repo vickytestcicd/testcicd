@@ -5,10 +5,10 @@ on:
     outputs:
       deployResulta:
         description: "the result of deployment"
-        value: ${{ jobs.test.output.result }}
+        value: ${{ jobs.test.outputs.result }}
       deployResultb:
         description: "the result of deployment"
-        value: ${{ jobs.test1.output.result }}
+        value: ${{ jobs.test1.outputs.result }}
 
 jobs:
   test:
