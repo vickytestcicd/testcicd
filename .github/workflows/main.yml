@@ -11,9 +11,10 @@ jobs:
   test:
     runs-on: ubuntu-latest
     outputs:
-      deployResult: ${{ steps.test.outputs.aa }}
+      deployResult: ${{ steps.test.outputs.result }}
     steps:
       - name: test
         id: test
         run: |
            echo "::set-output name=aa::valuesss"
+           echo "::set-output name=bb::valuesss"
