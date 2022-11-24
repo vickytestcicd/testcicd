@@ -5,24 +5,28 @@ on:
     outputs:
       deployResulta:
         description: "the result of deployment"
-        value: ${{ jobs.test.result }}
+        value: ${{ jobs.test.output.result }}
       deployResultb:
         description: "the result of deployment"
-        value: ${{ jobs.test1.result }}
+        value: ${{ jobs.test1.output.result }}
 
 jobs:
   test:
     runs-on: ubuntu-latest
+    outputs:
+      aa: ${{steps.outputs.test.aa }}
     steps:
       - name: test
         id: test
         run: |
-           exit 1
+           echo "::set-output name=aa::success"
   test1:
     runs-on: ubuntu-latest
+    outputs:
+      bb: ${{steps.outputs.test.bb }}
     steps:
       - name: test
         id: test
         run: |
-           exit 0
+           echo "::set-output name=bb::failed"
      
