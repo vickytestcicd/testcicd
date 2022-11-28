@@ -30,7 +30,7 @@ jobs:
       - name: test
         id: test
         run: |
-          bb=false
+          bb=true
           echo "::set-output name=bb::$bb"
           aa=true
           echo "::set-output name=aa::$aa"
@@ -40,7 +40,7 @@ jobs:
 #     needs: [testa,test]
 #     if: ${{ always() }} && ${{ needs.test.outputs.aa==true || needs.test.outputs.bb==true }}
     needs: [test]
-    if: ${{ needs.test.outputs.aa==true || needs.test.outputs.bb==true }}
+    if: ${{ needs.test.outputs.aa == true || needs.test.outputs.bb == true }}
     steps:
       - name: test
         id: test
