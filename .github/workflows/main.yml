@@ -32,7 +32,7 @@ jobs:
         run: |
           bb=false
           echo "::set-output name=bb::$bb"
-          aa=false
+          aa=true
           echo "::set-output name=aa::$aa"
 
   test2:
