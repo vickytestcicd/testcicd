@@ -30,7 +30,7 @@ jobs:
       - name: test
         id: test
         run: |
-          bb=true
+          bb=false
           echo "::set-output name=bb::$bb"
           aa=true
           echo "::set-output name=aa::$aa"
