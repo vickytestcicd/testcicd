@@ -38,7 +38,7 @@ jobs:
   test2:
     runs-on: ubuntu-latest
     needs: [testa,test]
-    if: ${{ always() && (needs.test.outputs.aa==true || needs.test.outputs.bb==true) }}
+    if: (${{ always()) && ${{ needs.test.outputs.aa==true || needs.test.outputs.bb==true }})
     steps:
       - name: test
         id: test
