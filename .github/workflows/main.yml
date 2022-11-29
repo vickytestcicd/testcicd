@@ -38,5 +38,10 @@ jobs:
       - name: test
         id: test
         run: |
-          echo ${{ needs.test.result }}
-          echo ${{ needs.test1.result }}
+          if [[ 0=1 ]]; then
+             echo 'test'
+          elif [[ 1=1 ]]; then
+              echo 'test1'
+          else 
+               echo 'test2'
+          fi
