@@ -36,12 +36,12 @@ jobs:
 #     needs: [test]
 #     if: ${{ needs.test.outputs.aa == 'true' || needs.test.outputs.bb == 'true' }}
     steps:
-      - name: test
+      - name: hahaha
         id: test
         run: |
           if [[ ${{ env.test }} -eq 'failure' ]]; then
              echo 'test'
-          elif [[ ${{ needs.test }} -eq 'success' ]]; then
+          elif [[ ${{ env.test }} -eq 'success' ]]; then
               echo 'test1'
           else 
                echo 'test2'
