@@ -39,8 +39,8 @@ jobs:
       - name: hahaha
         id: test
         run: |
-          if [[ ${{ env.test }} -eq 'failure' ]]; then
+          if [[ ${{ env.test }} == 'failure' ]]; then
              echo 'test'
-          elif [[ ${{ env.test }} -eq 'success' ]]; then
+          elif [[ ${{ env.test }} == 'success' ]]; then
               echo 'test1'
           fi
