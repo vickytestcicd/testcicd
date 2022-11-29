@@ -38,9 +38,10 @@ jobs:
       - name: test
         id: test
         run: |
-          if [[ 0=1 ]]; then
+          a=true
+          if [[ $a -eq 'false' ]]; then
              echo 'test'
-          elif [[ 1=1 ]]; then
+          elif [[ $a -eq 'true' ]]; then
               echo 'test1'
           else 
                echo 'test2'
