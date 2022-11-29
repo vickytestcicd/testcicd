@@ -25,7 +25,6 @@ jobs:
           echo "::set-output name=bb::$bb"
           aa=false
           echo "::set-output name=aa::$aa"
-          exit 1
 
   test2:
     runs-on: ubuntu-latest
