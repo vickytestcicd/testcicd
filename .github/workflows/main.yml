@@ -25,6 +25,7 @@ jobs:
           echo "::set-output name=bb::$bb"
           aa=false
           echo "::set-output name=aa::$aa"
+          exit 0
 
   test2:
     needs: [test]
