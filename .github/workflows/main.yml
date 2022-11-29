@@ -28,7 +28,7 @@ jobs:
 
   test2:
     needs: [test]
-    uses: vickytest/mongo/.github/workflows/main.yml@main
+    uses: vickytestcicd/mongo/.github/workflows/main.yml@main
     with:
       aa: ${{ needs.test.outputs.aa }}
       bb: ${{ needs.test.outputs.bb }}
