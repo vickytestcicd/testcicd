@@ -44,6 +44,5 @@ jobs:
           else
             if [[ ${{ env.test }} -eq 'success' ]]; then
               echo 'test1'
-          else 
-               echo 'test2'
+            fi
           fi
