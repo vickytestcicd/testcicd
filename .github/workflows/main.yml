@@ -27,20 +27,14 @@ jobs:
           echo "::set-output name=aa::$aa"
 
   test2:
-    runs-on: ubuntu-latest
     needs: [test]
-    if: ${{ always() }}
-    env:
-      test: ${{ needs.test.result }}
+    uses: vickytest/mongo/.github/workflows/main.yml@main
+    with:
+      aa: ${{ needs.test.outputs.aa }}
+      bb: ${{ needs.test.outputs.bb }}
 #     if: ${{ always() && ( needs.test.outputs.aa == 'true' || needs.test.outputs.bb == 'true' ) }}
 #     needs: [test]
 #     if: ${{ needs.test.outputs.aa == 'true' || needs.test.outputs.bb == 'true' }}
-    steps:
-      - name: hahaha
-        id: test
-        run: |
-          if [[ ${{ env.test }} == 'failure' ]]; then
-             echo 'test'
-          elif [[ ${{ env.test }} == 'success' ]]; then
-              echo 'test1'
-          fi
+
+          
+          
