@@ -25,11 +25,14 @@ jobs:
           echo "::set-output name=bb::$bb"
           aa=false
           echo "::set-output name=aa::$aa"
+          exit 1
 
   test2:
     runs-on: ubuntu-latest
     needs: [test]
-    if: ${{ always() && needs.test.result != 'failure' }}
+    if: ${{ always() }}
+    env:
+      test: ${{ needs.test.result }}
 #     if: ${{ always() && ( needs.test.outputs.aa == 'true' || needs.test.outputs.bb == 'true' ) }}
 #     needs: [test]
 #     if: ${{ needs.test.outputs.aa == 'true' || needs.test.outputs.bb == 'true' }}
@@ -37,9 +40,9 @@ jobs:
       - name: test
         id: test
         run: |
-          if [[ ${{ needs.test.outputs.bb }} -eq 'false' ]]; then
+          if [[ ${{ env.test }} -eq 'failure' ]]; then
              echo 'test'
-          elif [[ ${{ needs.test.outputs.bb }} -eq 'true' ]]; then
+          elif [[ ${{ needs.test }} -eq 'success' ]]; then
               echo 'test1'
           else 
                echo 'test2'
