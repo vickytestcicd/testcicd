@@ -38,10 +38,9 @@ jobs:
       - name: test
         id: test
         run: |
-          a=true
-          if [[ $a -eq 'false' ]]; then
+          if [[ ${{ needs.test.outputs.bb }} -eq 'false' ]]; then
              echo 'test'
-          elif [[ $a -eq 'true' ]]; then
+          elif [[ {{ needs.test.outputs.bb }} -eq 'true' ]]; then
               echo 'test1'
           else 
                echo 'test2'
