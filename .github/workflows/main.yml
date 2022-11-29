@@ -41,7 +41,8 @@ jobs:
         run: |
           if [[ ${{ env.test }} -eq 'failure' ]]; then
              echo 'test'
-          elif [[ ${{ env.test }} -eq 'success' ]]; then
+          else
+            if [[ ${{ env.test }} -eq 'success' ]]; then
               echo 'test1'
           else 
                echo 'test2'
