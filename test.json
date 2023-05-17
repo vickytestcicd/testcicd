@@ -1,0 +1,7 @@
+{
+  "DEPLOY": [
+    { "APCode": "SFK_SES_CLOUD.003-ESOS_FEDERATION2_SVC.001","providerFacing": "EHC",   "consumerFacing": "EHC",   "providerEnv": "DEV",   "consumerEnv": "DEV"},
+	{ 
+		"APCode": "SFK_SES_CLOUD.003-ESOS_FEDERATION2_SVC.001","providerFacing": "EHC",   "consumerFacing": "EHC",   "providerEnv": "DEV",   "consumerEnv": "DEV"}
+  ]
+}
