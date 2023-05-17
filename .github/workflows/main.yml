@@ -13,3 +13,4 @@ jobs:
         id: test
         run: |
            node test.js
+           cat test.json
