@@ -15,7 +15,7 @@ jobs:
           json=$(cat test.json)
 
           # 添加新字段
-          new_json=$(echo "$json" | sed 's/}$/,"new_field":"example"}/g')
+          new_json=$(echo "$json" | sed '\"consumerEnv\": \"DEV\"s/}$/,"new_field":"example"}/g')
 
           # 将新的 JSON 字符串写入文件
           echo "$new_json" > test.json
