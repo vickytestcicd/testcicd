@@ -12,13 +12,21 @@ jobs:
       - name: test
         id: test
         run: |
-          json=$(cat test.json)
+          import json
+
+          # 读取 JSON 文件，将 JSON 字符串解析为 Python 对象
+          with open('test.json', 'r') as f:
+            data = json.load(f)
 
           # 添加新字段
-          new_json=$(echo "$json" | sed '/consumerEnv/s/$/,"new_field":"example"}/g')
+          data['new_field'] = "example"
+
+          # 将 Python 对象序列化为 JSON 格式的字符串
+          new_json = json.dumps(data)
 
           # 将新的 JSON 字符串写入文件
-          echo "$new_json" > test.json
+          with open('test.json', 'w') as f:
+            f.write(new_json)
 
           # 运行结果输出到控制台
-          echo "Updated JSON content: $(cat test.json)"
+          print("Updated JSON content:", new_json)
