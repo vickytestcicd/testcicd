@@ -10,35 +10,18 @@ jobs:
       - name: test
         id: test
         run: |
-          echo "test"
-  test2:
-    runs-on: ubuntu-latest
-    needs: [test]
-    steps:
-      - run: exit 1
-  test3:
-    runs-on: ubuntu-latest
-    needs: [test2]
-    steps:
-      - run: echo "test3"
-  test4:
-    runs-on: ubuntu-latest
-    needs: [test2,test3]
-    if: ${{ always() && needs.test3.result != 'failure' }}
-    steps:
-      - run: echo "test3"
-    
-          
+          with open('test.json', 'r') as f:
+          data = json.load(f)
 
-#   test2:
-#     needs: [test]
-#     uses: vickytestcicd/mongo/.github/workflows/main.yml@main
-#     with:
-#       aa: ${{ needs.test.outputs.aa }}
-#       bb: ${{ needs.test.outputs.bb }}
-#     if: ${{ always() && ( needs.test.outputs.aa == 'true' || needs.test.outputs.bb == 'true' ) }}
-#     needs: [test]
-#     if: ${{ needs.test.outputs.aa == 'true' || needs.test.outputs.bb == 'true' }}
+          # 添加新字段
+          data['new_field'] = "example"
 
-          
-          
+          # 将 Python 对象序列化为 JSON 格式的字符串
+          new_json = json.dumps(data)
+
+          # 将新的 JSON 字符串写入文件
+          with open('test.json', 'w') as f:
+            f.write(new_json)
+
+          # 运行结果输出到控制台
+          print("Updated JSON content:", new_json)
