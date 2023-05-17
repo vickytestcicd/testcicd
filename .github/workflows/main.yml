@@ -10,20 +10,13 @@ jobs:
       - name: test
         id: test
         run: |
-          # 读取 JSON 文件，将 JSON 字符串解析为 Python 对象
-          with open('test.json', 'r') as f:
-            data = json.load(f)
+          json=$(cat test.json)
 
           # 添加新字段
-          data['new_field'] = "example"
-
-          # 将 Python 对象序列化为 JSON 格式的字符串
-          new_json = json.dumps(data)
+          new_json=$(echo "$json" | sed 's/}$/,"new_field":"example"}/g')
 
           # 将新的 JSON 字符串写入文件
-          with open('test.json', 'w') as f:
-            f.write(new_json)
+          echo "$new_json" > test.json
 
           # 运行结果输出到控制台
-          print("Updated JSON content:", new_json)
-          
+          echo "Updated JSON content: $(cat test.json)"
