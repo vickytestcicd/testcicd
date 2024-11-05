@@ -23,7 +23,6 @@ jobs:
   test2:
     runs-on: ubuntu-latest
     needs: [test]
-    if: ${{ contains(inputs.env,'sit') }}
     steps:
       - name: test
         id: test
