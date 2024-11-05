@@ -39,6 +39,8 @@ jobs:
            echo '333'
   test4:
     runs-on: ubuntu-latest
+    needs: [test2]
+    if: ${{ contains(fromJSON('["success","skipped"]'),needs.test2.result) }}
     steps:
       - name: test
         id: test
