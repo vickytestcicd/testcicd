@@ -19,9 +19,10 @@ jobs:
       - name: test
         id: test
         run: |
-          if [github.ref_name=='release'];then
+          if [ github.ref_name == 'release' ];then
             echo '111'
           else
             echo '222'
           fi
+          echo $GITHUB_REF_NAME
 
