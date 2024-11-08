@@ -15,20 +15,13 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    environment:
-      name: SIT
     steps:
       - name: test
         id: test
         run: |
-           echo '111'
-  test2:
-    runs-on: ubuntu-latest
-    environment:
-      name: FIXSIT
-    steps:
-      - name: test
-        id: test
-        run: |
-           exit 1
+          if [github.ref_name=='release'];then
+            echo '111'
+          else
+            echo '222'
+          fi
 
