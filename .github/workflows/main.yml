@@ -26,4 +26,4 @@ jobs:
         run: |
           echo ${{ needs.test.outputs.env }}
 
-          echo ${{ vars.NAMESPACE_${{ needs.test.outputs.env }} }}
+          echo ${{ vars[format('NAMESPACE_{0}', needs.test.outputs.env )]}}
